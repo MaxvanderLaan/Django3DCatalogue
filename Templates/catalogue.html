@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/catalogue.css' %}">
+<link rel="stylesheet" href="{% static 'css/card.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="settings-container"></div>
+<div class="items-container">
+    {% for model3d in model3dCollection %}
+        {% include 'card.html' with model3d=model3d %}
+    {% empty %}
+        <p>No 3D models available.</p>
+    {% endfor %}
+</div>
+{% endblock %}

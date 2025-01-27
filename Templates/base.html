@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Django 3D Catalogue{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    {% block styles %}
+    {% endblock %}
+
+    <script src="{% static 'js/app.js' %}"></script>
+
+</head>
+
+<body>
+    <nav>
+        <li>
+            <div class="logo"><a href="{% url 'index' %}">D3C</a></div>
+        </li>
+        <li><a href="{% url 'catalogue' %}">Catalogue</a></li>
+        <li><a href="">API</a></li>
+    </nav>
+
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+
+</html>

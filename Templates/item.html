@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/item.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.172.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.172.0/examples/jsm/"
+      }
+    }
+</script>
+
+<div class="container">
+  <div class="canvas-container">
+    <canvas id="bg"></canvas>
+  </div>
+  <div class="info-container">
+    <div class="info">
+      <h1>{{ model3d.name }}</h1>
+      <h2>Polygons: {{ model3d.triangles }}</h2>
+      <p>{{ model3d.description }}</p>
+      <button>Download</button>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+  import * as THREE from 'three';
+  import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.172.0/examples/jsm/controls/OrbitControls.js';
+  import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.172.0/examples/jsm/loaders/GLTFLoader.js';
+
+  const canvas = document.getElementById('bg');
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
+
+  const renderer = new THREE.WebGLRenderer({ canvas: canvas });
+  renderer.setClearColor(0xbababa);
+
+  function resizeCanvas() {
+    const width = window.innerWidth * 0.8;
+    const height = window.innerHeight * 0.8;
+
+    canvas.width = width * .73;
+    canvas.height = height;
+
+    renderer.setSize(canvas.width, canvas.height);
+
+    camera.aspect = canvas.width / canvas.height;
+    camera.updateProjectionMatrix();
+  }
+
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  camera.position.z = 20;
+  camera.position.y = 8;
+
+  renderer.render(scene, camera);
+
+  // Instantiate Object
+  const modelUrl = "{{ model3d.url|escapejs }}";
+  console.log(modelUrl)
+  const loader = new GLTFLoader();
+    loader.load(modelUrl, function (gltf) {
+    scene.add(gltf.scene);
+  }, undefined, function (error) {
+    console.error(error);
+  });
+
+  // Add Lighting
+  const ambientLight = new THREE.AmbientLight(0xffffff, 2);
+  scene.add(ambientLight);
+
+  // Add Helpers
+  const gridHelper = new THREE.GridHelper(200, 50);
+  scene.add(gridHelper);
+
+  // Controls
+  const controls = new OrbitControls(camera, renderer.domElement);
+
+  // Animation Loop
+  function animate() {
+    requestAnimationFrame(animate);
+    controls.update();
+    renderer.render(scene, camera);
+  }
+
+  animate();
+</script>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+<div class="card">
+    <a href="{% url 'item' model3d_id=model3d.id %}">
+        <div class="img-container">
+            <img src="{{ model3d.thumbnail }}}" alt="{{ model3d.name }}">
+        </div>
+        <div class="text-container">
+            <p>{{ model3d.name }}</p>
+        </div>
+    </a>
+</div>

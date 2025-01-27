@@ -1,0 +1,19 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-container {
+    min-height: 180px;
+    border-bottom: 4px solid #00c6b8;
+}
+
+.items-container {
+    padding-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 40px;
+    justify-content: center;
+    width: 70%;
+    margin: 0 auto;
+}

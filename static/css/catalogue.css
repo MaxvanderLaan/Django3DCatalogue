@@ -6,6 +6,7 @@ body {
 .settings-container {
     min-height: 180px;
     border-bottom: 4px solid #00c6b8;
+    z-index: 1;
 }
 
 .items-container {
@@ -16,4 +17,5 @@ body {
     justify-content: center;
     width: 70%;
     margin: 0 auto;
+    z-index: 1;
 }

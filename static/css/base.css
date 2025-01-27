@@ -1,0 +1,59 @@
+/* # Color Palet
+# #00c6b8
+# #000e1d
+# #ffffff
+# #6e7888 */
+
+@font-face {
+    font-family: "Gotham";
+    src: url('/static/fonts/gotham/Gotham_Fonts_Family/GOTHAM-BLACK.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Consolas";
+    src: url('/static/fonts/Consolas-Font/Consolas.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #000e1d;
+}
+
+nav {
+    font-family: Gotham;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 52px;   
+    width: 100%;
+    border-bottom: 2px solid white;
+    z-index: 10;
+}
+
+li {
+    height: 50px;
+    width: 200px;
+    font-weight: 500;
+    font-size: 22px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 2px solid white;
+}
+
+.logo{
+    font-weight: 500;
+    font-size: 36px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}

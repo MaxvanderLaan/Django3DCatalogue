@@ -6,12 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Django 3D Catalogue{% endblock %}</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
     {% block styles %}
     {% endblock %}
-
-    <script src="{% static 'js/app.js' %}"></script>
 
 </head>
 
@@ -21,13 +19,14 @@
             <div class="logo"><a href="{% url 'index' %}">D3C</a></div>
         </li>
         <li><a href="{% url 'catalogue' %}">Catalogue</a></li>
-        <li><a href="">API</a></li>
+        <li><a href="{% url 'api' %}">API</a></li>
+        <li><a href="{% url 'add' %}">New</a></li>
     </nav>
-
     <div>
         {% block content %}
         {% endblock %}
     </div>
+
 </body>
 
 </html>

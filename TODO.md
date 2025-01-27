@@ -1,6 +1,3 @@
-1. put javascript in own file
-2. make download button work
-3. implement api
-4. 5
-5. make models read from server
-6. make images read from server
+1. figure out wtf a import map is
+2. explore testing?
+3. pep8

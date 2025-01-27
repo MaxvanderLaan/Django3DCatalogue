@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
+    "corsheaders",
+    "rest_framework",
     # why does Django not add this automaticly?
     "catalogue",
     "item",
@@ -58,6 +59,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "Django3DCatalogue.urls"
+
 
 TEMPLATES = [
     {

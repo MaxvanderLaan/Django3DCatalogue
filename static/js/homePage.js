@@ -14,7 +14,7 @@ renderer.render(scene, camera);
 
 //Instantiate Objects
 const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true });
-const spehereMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff })
+const sphereMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff })
 
 const cube1 = new THREE.Mesh(new THREE.BoxGeometry(8, 8, 8), cubeMaterial);
 cube1.position.set(45, 16, -10);
@@ -28,19 +28,19 @@ cube3.position.set(-25, -15, 0);
 const cube4 = new THREE.Mesh(new THREE.BoxGeometry(5, 5, 5), cubeMaterial);
 cube4.position.set(20, -10, 7);
 
-const sphere1 = new THREE.Mesh(new THREE.SphereGeometry(.3, 14, 9), spehereMaterial);
+const sphere1 = new THREE.Mesh(new THREE.SphereGeometry(.3, 14, 9), sphereMaterial);
 sphere1.position.set(-3, -13, 0);
 
-const sphere2 = new THREE.Mesh(new THREE.SphereGeometry(.3, 14, 9), spehereMaterial);
+const sphere2 = new THREE.Mesh(new THREE.SphereGeometry(.3, 14, 9), sphereMaterial);
 sphere2.position.set(50, -3, -10);
 
-const sphere3 = new THREE.Mesh(new THREE.SphereGeometry(.3, 14, 9), spehereMaterial);
+const sphere3 = new THREE.Mesh(new THREE.SphereGeometry(.3, 14, 9), sphereMaterial);
 sphere3.position.set(-40, 16, -8);
 
-const sphere4 = new THREE.Mesh(new THREE.SphereGeometry(.3, 14, 9), spehereMaterial);
+const sphere4 = new THREE.Mesh(new THREE.SphereGeometry(.3, 14, 9), sphereMaterial);
 sphere4.position.set(-50, 10, -8);
 
-const sphere5 = new THREE.Mesh(new THREE.SphereGeometry(.3, 14, 9), spehereMaterial);
+const sphere5 = new THREE.Mesh(new THREE.SphereGeometry(.3, 14, 9), sphereMaterial);
 sphere5.position.set(18, 18, -8);
 
 scene.add(cube1, cube2, cube3, cube4, sphere1, sphere2, sphere3, sphere4, sphere5);
